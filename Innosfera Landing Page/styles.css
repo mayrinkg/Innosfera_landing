@@ -1,0 +1,234 @@
+/*
+  Estilo global para a landing page da Innosfera. Utilizamos variáveis CSS
+  para definir a paleta de cores baseada no logotipo fornecido, garantindo
+  consistência visual. A estrutura está organizada em seções ocultas ou
+  visíveis de acordo com o progresso do quiz. Pequenos detalhes de
+  interação, como estados de foco e hover, ajudam a guiar o usuário.
+*/
+
+:root {
+  /* Cores primárias derivadas do gradiente do logotipo */
+  --primary-color: #836ce9;
+  --primary-color-hover: #6f57d0;
+  --secondary-color: #5f6e7e;
+  --background-color: #f7f8fa;
+  --option-bg: #ffffff;
+  --option-border: #dfe3ec;
+  --option-hover-border: #b5bcd1;
+  --option-selected-bg: var(--primary-color);
+  --option-selected-color: #ffffff;
+}
+
+/* Reset básico para remover margens e definir tipografia */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: #333;
+  height: 100%;
+}
+
+/* Contêiner principal centralizado */
+#app {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+/* Seções visíveis/invisíveis */
+.section {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section.active {
+  display: flex;
+}
+
+/* Logotipo */
+.logo {
+  width: 230px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+/* Tipografia das mensagens iniciais */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.intro-text {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: var(--secondary-color);
+}
+
+/* Formulário de e‑mail */
+#email-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#email-form label {
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-size: 14px;
+  text-align: left;
+}
+
+#email-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Estilo para input com valor inválido (aproveita o pseudo‑class nativo) */
+#email-form input:invalid {
+  border-color: #e46863;
+}
+
+/* Botão de início */
+#start-button {
+  padding: 14px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#start-button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* Header do quiz */
+.quiz-header {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+/* Pergunta */
+#question-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Opções de resposta */
+#options-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  padding: 14px 16px;
+  background-color: var(--option-bg);
+  border: 1px solid var(--option-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+  text-align: left;
+  font-size: 16px;
+}
+
+.option:hover {
+  border-color: var(--option-hover-border);
+}
+
+.option.selected {
+  background-color: var(--option-selected-bg);
+  color: var(--option-selected-color);
+  border-color: var(--primary-color);
+}
+
+/* Botão próximo */
+#next-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 24px;
+}
+
+/* Estado desativado do botão */
+#next-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#next-button:not(:disabled):hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* Página de resultado */
+#result-section h2 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+#result-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+/* Call to action */
+.cta {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cta-message {
+  font-size: 16px;
+  color: var(--secondary-color);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-color-hover);
+}
